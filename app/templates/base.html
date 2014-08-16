@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <title>{{title}}</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/normalize.css')}}">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/base.css')}}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+<div class="ts-header">{% block header %}{% endblock %}</div>
+<div class="ts-content">{% block content %}{% endblock %}</div>
+<div class="ts-footer">
+  <p>©2014 EzDougie Studios</p>
+</div>
+{% block scripts %}{% endblock %}
+</body>
+</html>

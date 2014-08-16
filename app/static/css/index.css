@@ -1,0 +1,84 @@
+body {
+  background-image: url('../img/headercolor.jpg');
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.ts-header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.tru {
+  color: #2ecc71;
+  font-size: 100px;
+}
+
+.sight {
+  color: #ecf0f1;
+  font-size: 65px;
+  margin-left: 1px;
+}
+
+.ts-header h1 {
+  display: inline-block;
+  margin-top: 15px;
+  margin-left: 80px;
+  letter-spacing: 2px;
+  font-family: "Adam";
+}
+
+.ts-header h2,
+.ts-content h2,
+.ts-header h3 {
+  font-family: "Adam";
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #95a5a6;
+}
+
+.ts-header h2 {
+  margin-top: 133px;
+}
+
+.ts-header h3 {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+}
+
+.ts-content h2 {
+  color: #95a5a6;
+  margin-top: 10px;
+}
+
+.ts-header h2 span,
+.ts-content h2 span,
+.ts-header h3 span {
+  color: #ecf0f1 !important;
+}
+
+.ts-logo {
+  display: inline-block;
+  height: 105px;
+  margin-bottom: 10px;
+  margin-left: -6px;
+}
+
+.ts-content {
+  height: 400px;
+}
+
+#downcont {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}
+
+#downarrow {
+  cursor: pointer;
+  display: inherit;
+  margin: 0 auto;
+}
