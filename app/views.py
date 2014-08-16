@@ -26,7 +26,7 @@ def read_contents(uploaded):
 
 @app.route("/")
 def hello():
-  send_data_to_keen("dota_matches.json")
+  # send_data_to_keen("dota_matches.json")
   return render_template('index.html') 
 
 @app.route("/upload", methods=['GET', 'POST'])
