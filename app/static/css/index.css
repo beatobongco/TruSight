@@ -40,12 +40,12 @@ body {
 }
 
 .ts-header h2 {
-  margin-top: 133px;
+  margin-top: 150px;
 }
 
 .ts-header h3 {
   position: absolute;
-  bottom: 75px;
+  bottom: 85px;
   width: 100%;
 }
 
@@ -69,16 +69,28 @@ body {
 
 .ts-content {
   height: 400px;
+  background-color: #2c3e50;
 }
 
 #downcont {
   position: absolute;
   width: 100%;
-  bottom: 10px;
+  bottom: 20px;
 }
 
 #downarrow {
   cursor: pointer;
   display: inherit;
+  margin: 0 auto;
+}
+
+#uploadjson {
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  font-family: "Adam";
+  font-size: 18px;
+  border: none;
+  height: 50px;
+  width: 250px;
   margin: 0 auto;
 }

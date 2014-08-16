@@ -15,34 +15,7 @@
       writeKey: "", // required for sending events
       readKey: "7f0c518c47265051f5b9178c7c5a006a75e6d873070fae74eab6c87a0bacb5dfadf435979b483b99a964199782659db51a09f547988db6368218fc2f49a1491b84fd41a5f47ea91e45434bd7d40b3aaeeca5fad423bf7b4d2ca3c593f008eeb8f98169e7635f975faaa9149b7aeb1b33"    // required for doing analysis
   });
-  window.keen_client = keen_client;
-  function fetchKeen(){
-    var analysis = 'count_unique'
-    var event_collect = 'matches'
-    var target = 'match_id'
-    var filters = null
-    var targets = ['minimum', 'maximum', 'count_unique', 'average', 'median']
-    console.log(1)
-    if(targets.indexOf(analysis) == -1){
-      var query = new Keen.Query(analysis, {
-        eventCollection: event_collect,
-        filters: filters
-      })
-    }
-    else{
-      var query = new Keen.Query(analysis, {
-        eventCollection: event_collect,
-        filters: filters,
-        targetProperty: target
-      })
-    }
 
-    keen_client.draw(query, document.getElementById('try'), {
-      chartType: 'metric'
-    })
-  }
-  $( document ).ready(function() {
-    fetchKeen();
-  });
+  window.keen_client = keen_client;
   </script>
 </html>

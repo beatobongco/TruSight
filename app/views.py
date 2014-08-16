@@ -14,7 +14,6 @@ uploads_path = "uploads/"
 uploads_directory = static_directory + uploads_path
 
 def read_contents(uploaded):
-  
   upload_url = url_for('static', filename=uploads_path + uploaded) 
   try:
     with open(uploads_directory + uploaded, 'r') as myfile:
@@ -23,12 +22,19 @@ def read_contents(uploaded):
     abort(404)
   return file_content
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def hello():
-  # send_data_to_keen("dota_matches.json")
+  if request.method == 'POST':
+    new_file = request.files['file']
+    if new_file:
+      filename = new_file.filename
+      new_file.save(os.path.join(uploads_directory, filename))
+      send_data_to_keen(filename)
+      app.logger.debug(1)
+    return(redirect(url_for('dashboard', dashboard=filename)))
   return render_template('index.html') 
 
-@app.route("/upload", methods=['GET', 'POST'])
+@app.route("/upload", )
 def upload():
   if request.method == 'POST':
     dashboard = request.form['dashboard']
@@ -37,12 +43,13 @@ def upload():
       filename = new_file.filename
       new_file.save(os.path.join(uploads_directory, filename))
       send_data_to_keen(filename)
-    return(redirect(url_for('dashboard/' + dashboard)))
+    return(redirect(url_for('dashboard', dashboard_name=filename)))
   return(render_template('upload.html'))
 
 @app.route("/dashboard/<dashboard_name>", methods=['GET'])
 def dashboard(dashboard_name):
-  return render_template('index.html')
+  app.logger.debug(1)
+  return ('')
 
 def send_data_to_keen(keen_json):
   contents = read_contents(keen_json)

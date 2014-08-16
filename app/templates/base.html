@@ -14,8 +14,20 @@
 <div class="ts-header">{% block header %}{% endblock %}</div>
 <div class="ts-content">{% block content %}{% endblock %}</div>
 <div class="ts-footer">
-  <p>©2014 EzDougie Studios</p>
+  <p>© 2014 EzDougie Studios</p>
 </div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+!function(a,b){if(void 0===b[a]){b["_"+a]={},b[a]=function(c){b["_"+a].clients=b["_"+a].clients||{},b["_"+a].clients[c.projectId]=this,this._config=c},b[a].ready=function(c){b["_"+a].ready=b["_"+a].ready||[],b["_"+a].ready.push(c)};for(var c=["addEvent","setGlobalProperties","trackExternalLink","on"],d=0;d<c.length;d++){var e=c[d],f=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};b[a].prototype[e]=f(e)}var g=document.createElement("script");g.type="text/javascript",g.async=!0,g.src="https://d26b395fwzu5fz.cloudfront.net/3.0.5/keen.min.js";var h=document.getElementsByTagName("script")[0];h.parentNode.insertBefore(g,h)}}("Keen",this);
+
+var keen_client = new Keen({
+    projectId: "53ef34ffbcb79c226c000000",
+    writeKey: "", // required for sending events
+    readKey: "7f0c518c47265051f5b9178c7c5a006a75e6d873070fae74eab6c87a0bacb5dfadf435979b483b99a964199782659db51a09f547988db6368218fc2f49a1491b84fd41a5f47ea91e45434bd7d40b3aaeeca5fad423bf7b4d2ca3c593f008eeb8f98169e7635f975faaa9149b7aeb1b33"    // required for doing analysis
+});
+window.keen_client = keen_client;
+</script>
+
 {% block scripts %}{% endblock %}
 </body>
 </html>
