@@ -2,7 +2,7 @@ import os
 import ast
 import keen
 from app import app
-from flask import url_for, json, redirect, render_template
+from flask import url_for, json, redirect, render_template, request
 
 keen.project_id = app.config['KEEN_PROJECT_ID']
 keen.write_key = app.config['KEEN_WRITE_KEY']
@@ -18,7 +18,6 @@ def read_contents(uploaded):
   upload_url = url_for('static', filename=uploads_path + uploaded) 
   try:
     with open(uploads_directory + uploaded, 'r') as myfile:
-      app.logger.debug(type(myfile))
       file_content = json.load(myfile)
   except IOError:
     abort(404)
@@ -36,19 +35,19 @@ def upload():
     new_file = request.files['file']
     if new_file:
       filename = new_file.filename
-      new_file.save(os.path.join('/upload/', filename))
-      send_contents(filename)
-  return(redirect(url_for('dashboard/' + dashboard)))
+      new_file.save(os.path.join(uploads_directory, filename))
+      send_data_to_keen(filename)
+    return(redirect(url_for('dashboard/' + dashboard)))
+  return(render_template('upload.html'))
 
 @app.route("/dashboard/<dashboard_name>", methods=['GET'])
 def dashboard(dashboard_name):
-  return('')
+  return render_template('index.html')
 
 def send_data_to_keen(keen_json):
   contents = read_contents(keen_json)
-  data = contents
-  for key in data.keys():
-    events = data.get(key)
+  for key in contents.keys():
+    events = contents.get(key)
     for event in events:
       keen.add_events({str(key): [event]})
 
