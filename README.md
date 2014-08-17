@@ -1,7 +1,7 @@
 TruSight
 ======
 
-![TruSight logo](https://prtsc.io/01CK16hw5e)
+![TruSight logo](https://drive.google.com/uc?id=0B7L7xGnwuE3GcnpFT293d0xNdFk&export=download)
 
 Our entry for DevCup 2014.
 
