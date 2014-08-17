@@ -1,6 +1,8 @@
 TruSight
 ======
 
+![https://prtsc.io/01CK16hw5e]
+
 Our entry for DevCup 2014.
 
 Data doesn't have to look crappy or boring. Sometimes you need it to look good to understand it. A lot of times, by putting two unrelated or semi-related queries you find a connection you never saw before.
