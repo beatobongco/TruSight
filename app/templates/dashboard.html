@@ -21,23 +21,9 @@
       <option value="median">Median</option>
       <option value="count_unique">Unique</option>
     </select>
-    <span id="g-by">Group by:</span>
-    <select id="initial-subject" name="keys">
-      {% for key in keys %}
-      <option value="{{ key }}">{{ key }}</option>
-      {% endfor %}
-      <option value="null">None</option>
-      <!-- <option value="gpm">GPM</option>
-      <option value="xpm">XPM</option>
-      <option value="kills">Kills</option>
-      <option value="deaths">Deaths</option>
-      <option value="assists">Assists</option>
-      <option value="match_id">Match ID</option>
-      <option value="winner">Winner</option>
-      <option value="faction">Faction</option>
-      <option value="match_date">Match Date </option> -->
-    </select>
-    Filters:
+    <span>{{event_collect}}, </span>
+    
+    filtered by:
     <div class="filter">
     <select id="initial-key" class="key-selector" name="keys">
       {% for key in keys %}
@@ -65,7 +51,22 @@
     </select>
 
     <input id="initial-prop-value" class="prop-val-tb" type="text">
-
+    <span id="g-by">Grouped by:</span>
+    <select id="initial-subject" name="keys">
+      {% for key in keys %}
+      <option value="{{ key }}">{{ key }}</option>
+      {% endfor %}
+      <option value="null">None</option>
+      <!-- <option value="gpm">GPM</option>
+      <option value="xpm">XPM</option>
+      <option value="kills">Kills</option>
+      <option value="deaths">Deaths</option>
+      <option value="assists">Assists</option>
+      <option value="match_id">Match ID</option>
+      <option value="winner">Winner</option>
+      <option value="faction">Faction</option>
+      <option value="match_date">Match Date </option> -->
+    </select>
     </div>
     <button id="filter-btn" type="button">Add Filter</button>
     <button id="run" type="button">Try Query</button>
@@ -158,6 +159,8 @@
       //filters.push({ "property_name" : $('#initial-key').val(), "operator" : $('#initial-operator').val() , "property_value" : $('#initial-prop-value').val() });
       
       // if (typeof filters !== 'undefined' && filters.length > 0) {
+        //if not "total" count and grouped by none
+        console.log($('#initial-subject').val() && $('#sel-anal').val() != 'count');
         if ($('#initial-subject').val() == "null") {
           gridster.add_widget('<li class="new" id="' + randomid + '"></li>', 1, 1);
         }
@@ -210,7 +213,7 @@
   $('#sel-anal').change(function(){
     console.log($(this).val());
     if($(this).val() == "count") {
-      $('#g-by').html("Group by:") 
+      $('#g-by').html("Grouped by:") 
     }
     else {
       $('#g-by').html("Target Property:");
