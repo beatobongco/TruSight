@@ -168,19 +168,26 @@
       var analysis = $('#sel-anal').val();
       var randomid = makeid();
       //filters.push({ "property_name" : $('#initial-key').val(), "operator" : $('#initial-operator').val() , "property_value" : $('#initial-prop-value').val() });
-
+      
       if (typeof filters !== 'undefined' && filters.length > 0) {
         gridster.add_widget('<li class="new" id="' + randomid + '"></li>', 1, 1); 
         var title;
         if(analysis == 'count'){
-
-          title = "Total number" + " of " + "{{ event_collect }}" + " with " + JSON.stringify(filters);
+          title = "Total number" + " of " + "{{ event_collect }}" + " where: <br> ";
+          jQuery.each( $('.filtertag'), function( i, val ) {
+            title = title + "<span class='smalltags'>" + $(this).html() + "</span>";
+          });
+          
           fetchKeen(analysis, "{{ event_collect }}", randomid, { "title" : title }, filters, null);
           filters = [];
           $('.activefilters').empty();
         }
         else{
-          title = analysis + " of " + $('#initial-subject').val() + " with " + JSON.stringify(filters);
+          title = analysis + " number of " + $('#initial-subject').val() + " where: <br> ";
+          jQuery.each( $('.filtertag'), function( i, val ) {
+            title = title + "<span class='smalltags'>" + $(this).html() + "</span> ";
+          });
+          
           fetchKeen(analysis, "{{ event_collect }}", randomid, { "title" : title }, filters, 
             $('#initial-subject').val());
           filters = [];
