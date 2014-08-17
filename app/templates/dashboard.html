@@ -2,6 +2,8 @@
 {% block content %}
   <div id="total-games">
   </div>
+  <div id="group-by">
+  </div>
   <div id="average-gpm">
   </div>
   <div id="average-xpm">
@@ -54,6 +56,7 @@
     var analysis
     var chartType
     var main_target
+    console.log(1)
     $(document).ready(function(){
       console.log(1)
       Keen.ready(function(){
@@ -62,7 +65,12 @@
           timeframe: {"start": "01-01-1930T00:00:00Z", "end":"08-17-2014T00:00:00Z"},
           interval: "yearly"
         });
-        keen_client.draw(query, document.getElementById("total-games"),{});
+        keen_client.draw(query, document.getElementById("total-games"),{'Total Games Played'});
+        var query = new Keen.Query("count", {
+          eventCollection: "matches",
+          groupBy: "hero_name"
+        });
+        keen_client.draw(query, document.getElementById("group-by"), {'title': 'Heroes Played'});
         fetchKeen('average', 'matches', 'average-gpm', {'chartType': 'metric', 'title': 'Average GPM'}, null, 'gpm');
         fetchKeen('average', 'matches', 'average-xpm', {'chartType': 'metric', 'title': 'Average XPM'}, null, 'xpm');
         fetchKeen('average', 'matches', 'average-kills', {'chartType': 'metric', 'title': 'Average Kills'}, null, 'kills');
