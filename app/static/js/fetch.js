@@ -1,9 +1,14 @@
-function fetchKeen(analysis, event_collect, div, chart_options, filters, target){
+function fetchKeen(analysis, event_collect, div, chart_options, filters, target, groupby){
   var targets = ['minimum', 'maximum', 'count_unique', 'average', 'median']
+  var gb = ''
+  if(groupby != "null"){
+    gb = groupby
+  }
   if(targets.indexOf(analysis) == -1){
     var query = new Keen.Query(analysis, {
       eventCollection: event_collect,
-      filters: filters
+      filters: filters,
+      groupBy: gb
     })
   }
   else{

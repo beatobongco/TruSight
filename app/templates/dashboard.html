@@ -7,7 +7,8 @@
 
 {% block content %}
   <div class="head">
-  <h1>{{ title }}</h1>
+  <h1 class="logo-header"><span id="true">T</span><span id="sight">S</span></h1><img class="ts-logo" src="{{url_for('static', filename='img/tslogo_wa.png')}}">
+  <h1 class="ft">{{ title }}</h1>
   </div>
 
   <div id="query">
@@ -20,10 +21,12 @@
       <option value="median">Median</option>
       <option value="count_unique">Unique</option>
     </select>
+    <span id="g-by">Group by:</span>
     <select id="initial-subject" name="keys">
       {% for key in keys %}
       <option value="{{ key }}">{{ key }}</option>
       {% endfor %}
+      <option value="null">None</option>
       <!-- <option value="gpm">GPM</option>
       <option value="xpm">XPM</option>
       <option value="kills">Kills</option>
@@ -143,23 +146,6 @@
 
       */
       });
-      $('#initial-subject').prop('disabled', true);
-
-      $('#filter').click(function(){
-      event.preventDefault();
-      //append to filters
-      /*
-        filter.push({
-          "property_name": value from keys,
-          "operator": value from operaotrs,
-          "property_value": value from prop-value
-        })
-      */
-      //spawn only keys, operators, and prop-value
-
-      //example
-      //filter.push({ "property_name" : "gpm", "operator" : "lte", "property_name" : 1000 })
-    });
 
     $('#run').click(function(){
       //set analysis
@@ -167,18 +153,33 @@
       //set main target using first element of filters
       var analysis = $('#sel-anal').val();
       var randomid = makeid();
+      var title;
+      var notags = false;
       //filters.push({ "property_name" : $('#initial-key').val(), "operator" : $('#initial-operator').val() , "property_value" : $('#initial-prop-value').val() });
       
-      if (typeof filters !== 'undefined' && filters.length > 0) {
-        gridster.add_widget('<li class="new" id="' + randomid + '"></li>', 1, 1); 
-        var title;
+      // if (typeof filters !== 'undefined' && filters.length > 0) {
+        if ($('#initial-subject').val() == "null") {
+          gridster.add_widget('<li class="new" id="' + randomid + '"></li>', 1, 1);
+        }
+        else {
+          notags = true;
+          gridster.add_widget('<li class="new" id="' + randomid + '"></li>', 1, 2);
+        }
+         
+        
         if(analysis == 'count'){
-          title = "Total number" + " of " + "{{ event_collect }}" + " where: <br> ";
-          jQuery.each( $('.filtertag'), function( i, val ) {
-            title = title + "<span class='smalltags'>" + $(this).html() + "</span>";
-          });
+          if (notags) {
+            title = "Total number of " + "{{event_collect}}" + " grouped by " + $('#initial-subject').val();
+          }
+          else {
+            title = "Total number" + " of " + "{{ event_collect }}" + " where: <br> ";
+            jQuery.each( $('.filtertag'), function( i, val ) {
+              title = title + "<span class='smalltags'>" + $(this).html() + "</span>";
+            });
+          }
           
-          fetchKeen(analysis, "{{ event_collect }}", randomid, { "title" : title }, filters, null);
+
+          fetchKeen(analysis, "{{ event_collect }}", randomid, { "title" : title }, filters, null, $('#initial-subject').val());
           filters = [];
           $('.activefilters').empty();
         }
@@ -189,14 +190,14 @@
           });
           
           fetchKeen(analysis, "{{ event_collect }}", randomid, { "title" : title }, filters, 
-            $('#initial-subject').val());
+            $('#initial-subject').val(), null);
           filters = [];
           $('.activefilters').empty();
         }
-      }
-      else {
-        alert("Add some filters, yo! :)");
-      }
+      // }
+      // else {
+      //   alert("Add some filters, yo! :)");
+      // }
 
       
     });
@@ -209,10 +210,10 @@
   $('#sel-anal').change(function(){
     console.log($(this).val());
     if($(this).val() == "count") {
-      $('#initial-subject').prop('disabled', true);
+      $('#g-by').html("Group by:") 
     }
     else {
-      $('#initial-subject').prop('disabled', false);
+      $('#g-by').html("Target Property:");
     }
   });
 

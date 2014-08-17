@@ -24,7 +24,13 @@
 {% endblock %}
 
 {% block content %}
-<form name="input" method="post" enctype="multipart/form-data">
+<h2>Want to see something <span>cool?</span></h2>
+<br>
+<br>
+<h2>Go <span>ahead.</span></h2>
+<br>
+<br>
+<form id="formy" name="input" method="post" enctype="multipart/form-data">
   <!-- took out name because let's just make filename into dashboard name for now -->
   <button id="uploadjson" type="button">UPLOAD A JSON FILE</button>
   <input id="fileselect" type="file" name="file" style="display:none">

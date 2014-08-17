@@ -2,6 +2,37 @@ body {
   background-color: #2c3e50;
 }
 
+.logo-header {
+  margin-top: 10px;
+}
+
+.ft {
+  margin-left: 25px;
+}
+
+.ts-content .logo-header {
+  font-family: "Adam";
+  font-size: 52px;
+  display: inline-block;
+}
+
+#true {
+  color: #2ecc71;
+}
+
+#sight {
+  color: #ecf0f1;
+}
+
+.ts-logo {
+  display: inline-block;
+  height: 40px;
+}
+
+h1 {
+  display: inline-block;
+}
+
 .ts-content {
   min-height: 95vh;
 }

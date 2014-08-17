@@ -1,0 +1,221 @@
+{
+  "nba_teams":
+    [
+      {
+        "team": "PACERS",
+        "assists": 4800,
+        "points": 1598,
+        "rebounds": 925,
+        "steals": 5536,
+        "blocks": 7552,
+        "year": 1976,
+        "keen": {
+          "timestamp": "01-29-1990T07:27:39Z"
+        }
+      },
+      {
+        "team": "PACERS",
+        "assists": 5347,
+        "points": 3027,
+        "rebounds": 5720,
+        "steals": 7966,
+        "blocks": 434,
+        "year": 1978,
+        "keen": {
+          "timestamp": "08-02-1920T00:49:51Z"
+        }
+      },
+      {
+        "team": "PACERS",
+        "assists": 2649,
+        "points": 8562,
+        "rebounds": 3226,
+        "steals": 5750,
+        "blocks": 1727,
+        "year": 2009,
+        "keen": {
+          "timestamp": "04-18-1987T21:07:33Z"
+        }
+      },
+      {
+        "team": "TRAIL BLAZERS",
+        "assists": 8291,
+        "points": 4620,
+        "rebounds": 174,
+        "steals": 2668,
+        "blocks": 764,
+        "year": 2008,
+        "keen": {
+          "timestamp": "10-26-1964T21:08:43Z"
+        }
+      },
+      {
+        "team": "TRAIL BLAZERS",
+        "assists": 4475,
+        "points": 6585,
+        "rebounds": 9317,
+        "steals": 527,
+        "blocks": 5962,
+        "year": 2012,
+        "keen": {
+          "timestamp": "12-27-1909T20:28:45Z"
+        }
+      },
+      {
+        "team": "THUNDER",
+        "assists": 693,
+        "points": 5552,
+        "rebounds": 4676,
+        "steals": 8753,
+        "blocks": 241,
+        "year": 1978,
+        "keen": {
+          "timestamp": "06-29-1960T16:30:11Z"
+        }
+      },
+      {
+        "team": "TIMBERWOLVES",
+        "assists": 65,
+        "points": 1695,
+        "rebounds": 136,
+        "steals": 3158,
+        "blocks": 5423,
+        "year": 1999,
+        "keen": {
+          "timestamp": "04-12-1926T19:44:39Z"
+        }
+      },
+      {
+        "team": "LAKERS",
+        "assists": 1238,
+        "points": 5592,
+        "rebounds": 3711,
+        "steals": 8732,
+        "blocks": 7985,
+        "year": 2001,
+        "keen": {
+          "timestamp": "04-08-1952T15:45:38Z"
+        }
+      },
+      {
+        "team": "THUNDER",
+        "assists": 8285,
+        "points": 4737,
+        "rebounds": 3175,
+        "steals": 6200,
+        "blocks": 9805,
+        "year": 1982,
+        "keen": {
+          "timestamp": "10-30-1907T20:13:09Z"
+        }
+      },
+      {
+        "team": "PACERS",
+        "assists": 7688,
+        "points": 1777,
+        "rebounds": 5122,
+        "steals": 1663,
+        "blocks": 7652,
+        "year": 2012,
+        "keen": {
+          "timestamp": "10-23-1970T06:11:04Z"
+        }
+      },
+      {
+        "team": "LAKERS",
+        "assists": 1759,
+        "points": 2078,
+        "rebounds": 3511,
+        "steals": 7948,
+        "blocks": 1959,
+        "year": 2004,
+        "keen": {
+          "timestamp": "02-19-1921T22:06:44Z"
+        }
+      },
+      {
+        "team": "TIMBERWOLVES",
+        "assists": 2229,
+        "points": 1780,
+        "rebounds": 2636,
+        "steals": 1740,
+        "blocks": 595,
+        "year": 2003,
+        "keen": {
+          "timestamp": "12-15-1995T13:11:52Z"
+        }
+      },
+      {
+        "team": "PACERS",
+        "assists": 9186,
+        "points": 1088,
+        "rebounds": 9914,
+        "steals": 2160,
+        "blocks": 5857,
+        "year": 1989,
+        "keen": {
+          "timestamp": "06-16-1970T10:23:28Z"
+        }
+      },
+      {
+        "team": "THUNDER",
+        "assists": 744,
+        "points": 2856,
+        "rebounds": 2091,
+        "steals": 6394,
+        "blocks": 7778,
+        "year": 1994,
+        "keen": {
+          "timestamp": "03-24-1924T10:15:52Z"
+        }
+      },
+      {
+        "team": "TIMBERWOLVES",
+        "assists": 9484,
+        "points": 5781,
+        "rebounds": 2272,
+        "steals": 6848,
+        "blocks": 6779,
+        "year": 1999,
+        "keen": {
+          "timestamp": "03-08-1960T21:30:53Z"
+        }
+      },
+      {
+        "team": "PACERS",
+        "assists": 9527,
+        "points": 5551,
+        "rebounds": 1562,
+        "steals": 4746,
+        "blocks": 7442,
+        "year": 1999,
+        "keen": {
+          "timestamp": "02-02-1944T15:16:43Z"
+        }
+      },
+      {
+        "team": "THUNDER",
+        "assists": 8042,
+        "points": 1462,
+        "rebounds": 7509,
+        "steals": 4049,
+        "blocks": 791,
+        "year": 1994,
+        "keen": {
+          "timestamp": "07-06-1993T14:47:51Z"
+        }
+      },
+      {
+        "team": "LAKERS",
+        "assists": 3480,
+        "points": 2240,
+        "rebounds": 2312,
+        "steals": 5227,
+        "blocks": 3390,
+        "year": 1997,
+        "keen": {
+          "timestamp": "03-02-1921T01:01:33Z"
+        }
+      }
+    ]
+}

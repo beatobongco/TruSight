@@ -41,6 +41,7 @@ body {
 
 .ts-header h2 {
   margin-top: 150px;
+  margin-bottom: 40px !important;
 }
 
 .ts-header h3 {
@@ -92,5 +93,12 @@ body {
   border: none;
   height: 50px;
   width: 250px;
-  margin: 0 auto;
+  display: inherit;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ts-content {
+  padding-top: 100px;
+  height: 43vh;
 }
