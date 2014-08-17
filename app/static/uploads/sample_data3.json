@@ -1,0 +1,29 @@
+{
+  "nba_teams":
+    [
+      {
+        "team": "PACERS",
+        "assists": 4800,
+        "points": 1598,
+        "rebounds": 925,
+        "steals": 5536,
+        "blocks": 7552,
+        "year": 1976,
+        "keen": {
+          "timestamp": "01-29-1990T07:27:39Z"
+        }
+      },
+      {
+        "team": "PACERS",
+        "assists": 5347,
+        "points": 3027,
+        "rebounds": 5720,
+        "steals": 7966,
+        "blocks": 434,
+        "year": 1978,
+        "keen": {
+          "timestamp": "08-02-1920T00:49:51Z"
+        }
+      }
+    ]
+}
