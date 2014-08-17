@@ -1,7 +1,7 @@
 TruSight
 ======
 
-![https://prtsc.io/01CK16hw5e]
+!(https://prtsc.io/01CK16hw5e)
 
 Our entry for DevCup 2014.
 
