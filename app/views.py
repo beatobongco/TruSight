@@ -30,14 +30,12 @@ def hello():
       filename = new_file.filename
       new_file.save(os.path.join(uploads_directory, filename))
       send_data_to_keen(filename)
-      app.logger.debug(1)
-    return(redirect(url_for('dashboard', dashboard=filename)))
+    return(redirect(url_for('dashboard', dashboard_name=filename)))
   return render_template('index.html') 
 
 @app.route("/upload", )
 def upload():
   if request.method == 'POST':
-    dashboard = request.form['dashboard']
     new_file = request.files['file']
     if new_file:
       filename = new_file.filename
@@ -48,8 +46,7 @@ def upload():
 
 @app.route("/dashboard/<dashboard_name>", methods=['GET'])
 def dashboard(dashboard_name):
-  app.logger.debug(1)
-  return ('')
+  return render_template('dashboard.html')
 
 def send_data_to_keen(keen_json):
   contents = read_contents(keen_json)

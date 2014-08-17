@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+  <div id="total-games">
+  </div>
+  <div id="average-gpm">
+  </div>
+  <div id="average-xpm">
+  </div>
+  <div id="average-kills">
+  </div>
+  <div id="average-deaths">
+  </div>
+  <div id="average-assists">
+  </div>
+  <div id="query">
+    <select name="analysis">
+      <option value="count">Total</option>
+      <option value="average">Average</option>
+      <option value="maximum">Maximum</option>
+      <option value="minimum">Minimum</option>
+      <option value="median">Median</option>
+      <option value="count_unique">Unique</option>
+    </select>
+    <select name="keys">
+      <option value="gpm">GPM</option>
+      <option value="xpm">XPM</option>
+      <option value="kills">Kills</option>
+      <option value="death">Deaths</option>
+      <option value="assists">Assists</option>
+      <option value="match_id">Match ID</option>
+      <option value="winner">Winner</option>
+      <option value="faction">Faction</option>
+      <option value="match_date">Match Date </option>
+    </select>
+    <select name="operators">
+      <option value="gte">gte</option>
+      <option value="lte">lte</option>
+      <option value="eq">eq</option>
+      <option value="gt">gt</option>
+      <option value="lt">lt</option>
+      <option value="ne">ne</option>
+    </select>
+    <input id="prop-value" type="text">
+    <a id="filter" type="button" href="#">Add Filter</a>
+    <a id="run" type="button" href="#">Try Query</a>
+  </div>
+  <div id="temp">
+  </div>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/fetch.js')}}"></script>
+  <script type="javascript">
+    var filters = []
+    var analysis
+    var chartType
+    var main_target
+    $(document).ready(function(){
+      console.log(1)
+      Keen.ready(function(){
+        var query = new Keen.Query("count", {
+          eventCollection: "matches",
+          timeframe: {"start": "01-01-1930T00:00:00Z", "end":"08-17-2014T00:00:00Z"},
+          interval: "yearly"
+        });
+        keen_client.draw(query, document.getElementById("total-games"),{});
+        fetchKeen('average', 'matches', 'average-gpm', {'chartType': 'metric', 'title': 'Average GPM'}, null, 'gpm');
+        fetchKeen('average', 'matches', 'average-xpm', {'chartType': 'metric', 'title': 'Average XPM'}, null, 'xpm');
+        fetchKeen('average', 'matches', 'average-kills', {'chartType': 'metric', 'title': 'Average Kills'}, null, 'kills');
+        fetchKeen('average', 'matches', 'average-deaths', {'chartType': 'metric', 'title': 'Average Deaths'}, null, 'death');
+        fetchKeen('average', 'matches', 'average-assists', {'chartType': 'metric', 'title': 'Average Assists'}, null, 'assists');
+      });
+    });
+    $('#filter').click(function(){
+      event.preventDefault();
+      //append to filters
+      /*
+        filter.push({
+          "property_name": value from keys,
+          "operator": value from operaotrs,
+          "property_value": value from prop-value
+        })
+      */
+      //spawn only keys, operators, and prop-value
+    });
+    $('#run').click(function(){
+      //set analysis
+      //set chart type
+      //set main target using first element of filters
+      if(analysis == 'count'){
+        fetchKeen(analysis, 'matches', 'temp', chartOptions, filters, null)
+      }
+      else{
+        fetchKeen(analysis, 'matches', 'temp', chartOptions, filters, main_target)
+      }
+    });
+  </script>
+{% endblock %}
